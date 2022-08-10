@@ -3,5 +3,9 @@ module.exports = Object.freeze({
     username: 'webmaster',
     password: 'pgsql.dev',
     host: 'localhost',
-    dialect: 'postgres'
+    dialect: 'postgres',
+    define:{
+        updatedAt: false,
+        createdAt: false,
+    }
 })

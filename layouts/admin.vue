@@ -118,3 +118,9 @@
     </body>
 
 </template>
+
+<script>
+export default {
+    middleware: ['admin']
+}
+</script>

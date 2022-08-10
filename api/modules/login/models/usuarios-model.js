@@ -18,6 +18,10 @@ module.exports = {
                 type: DataTypes.STRING,
                 allowNull: false
             },
+            usu_password:{
+                type: DataTypes.STRING,
+                allowNull: false
+            },
             usu_admin:{
                 type: DataTypes.BOOLEAN,
                 defaultValue: false

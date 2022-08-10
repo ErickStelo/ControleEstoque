@@ -36,7 +36,7 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     { src: '~/static/js/datatables-simple-demo.js', mode: 'client'},
-    // { src: '~/static/js/scripts.js', mode: 'client'},
+    { src: '~/plugins/veevalidade.js'},
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -52,6 +52,7 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    ['cookie-universal-nuxt', { alias: 'cookiz' }]
   ],
 
   router: {
@@ -59,13 +60,17 @@ export default {
       routes.push({
         name: 'login-route',
         path: '/',
-        component: resolve(__dirname, 'pages/login.vue')
+        component: resolve(__dirname, 'pages/login/index.vue')
       })
     }
   },
 
   serverMiddleware: {
     '/api': '~/api/server-api'
+  },
+
+  server:{
+    port: 8081
   },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
@@ -94,5 +99,9 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    transpile: ["vee-validate/dist/rules"],
+    /*
+     ** You can extend webpack config here
+     */
   }
 }
